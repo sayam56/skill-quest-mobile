@@ -3,6 +3,7 @@ import 'package:Skill_Quest/main.dart';
 import 'package:Skill_Quest/view/pages/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -83,6 +84,66 @@ class _SignUpPageState extends State<SignUpPage> {
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25),
                       ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'LOGIN',
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            // To be filled with google login logic
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black87,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(25),
+                              ),
+                              border: Border.all(
+                                width: 2,
+                                color: kPrimaryColor,
+                              ),
+                            ),
+                            height: 50,
+                            width: MediaQuery.of(context).size.width,
+                            margin: const EdgeInsets.only(
+                              left: 50,
+                              right: 50,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  "assets/images/google.svg",
+                                  height: 20,
+                                  width: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Center(
+                                  child: Text(
+                                    'Login with Google',
+                                    style: TextStyle(
+                                      color: kPrimaryColor,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ],
