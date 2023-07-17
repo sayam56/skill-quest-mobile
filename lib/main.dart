@@ -9,6 +9,22 @@ Future main() async {
   runApp(MyApp());
 }
 
+const MaterialColor kPrimaryColor = MaterialColor(
+  0xFFFFEED0,
+  <int, Color>{
+    50: Color(0xFFFFEED0),
+    100: Color(0xFFFFEED0),
+    200: Color(0xFFFFEED0),
+    300: Color(0xFFFFEED0),
+    400: Color(0xFFFFEED0),
+    500: Color(0xFFFFEED0),
+    600: Color(0xFFFFEED0),
+    700: Color(0xFFFFEED0),
+    800: Color(0xFFFFEED0),
+    900: Color(0xFFFFEED0),
+  },
+);
+
 class MyApp extends StatelessWidget {
   Widget firstWidget = SignUpPage();
 

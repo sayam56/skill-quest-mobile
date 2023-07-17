@@ -1,10 +1,10 @@
 import 'package:Skill_Quest/authentication/g_auth.dart';
+import 'package:Skill_Quest/main.dart';
 import 'package:Skill_Quest/view/pages/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
-
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
@@ -19,7 +19,10 @@ class _SignUpPageState extends State<SignUpPage> {
         actions: [
           InkWell(
             onTap: () => {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard("This is Dashboard")))
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Dashboard("This is Dashboard")))
             },
             child: Container(
               margin: EdgeInsets.only(right: 20),
@@ -44,45 +47,49 @@ class _SignUpPageState extends State<SignUpPage> {
         ],
       ),
       backgroundColor: Colors.black87,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                width: MediaQuery.of(context).size.width * .8,
-                margin: EdgeInsets.only(
-                  top: 50,
-                  left: MediaQuery.of(context).size.width * 0.097,
-                ),
-                child: const Text(
-                  'Create Account',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700),
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                width: MediaQuery.of(context).size.width * .8,
-                margin: EdgeInsets.only(
-                  top: 2.5,
-                  left: MediaQuery.of(context).size.width * 0.097,
-                ),
-                child: Text(
-                  'Sign In To Get Started!',
-                  style: TextStyle(
-                      color: Color(0xff606365).withOpacity(0.6),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-          ],
+      body: Container(
+        color: Colors.black87,
+        child: Expanded(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
+                children: [
+                  SizedBox(
+                    width: constraints.maxWidth,
+                    height: constraints.maxHeight / 2,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      verticalDirection: VerticalDirection.down,
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.center,
+                          child: Image.asset(
+                            "assets/images/logo_transparent.png",
+                            height: 200,
+                            width: 200,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: constraints.maxWidth,
+                    height: constraints.maxHeight / 2,
+                    decoration: const BoxDecoration(
+                      color: kPrimaryColor,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
       ),
     );
   }
