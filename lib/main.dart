@@ -1,8 +1,15 @@
+import 'package:Skill_Quest/view/pages/auth_page.dart';
 import 'package:Skill_Quest/view/pages/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Future.delayed(const Duration(seconds: 1));
   FlutterNativeSplash.remove();
 
@@ -41,7 +48,7 @@ class MyApp extends StatelessWidget {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
       ),
-      home: SignUpPage(),
+      home: AuthPage(),
     );
   }
 }

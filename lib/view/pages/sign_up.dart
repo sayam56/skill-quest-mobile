@@ -1,5 +1,5 @@
-import 'package:Skill_Quest/authentication/g_auth.dart';
 import 'package:Skill_Quest/main.dart';
+import 'package:Skill_Quest/services/auth_service.dart';
 import 'package:Skill_Quest/view/pages/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,35 +17,7 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(
         elevation: 0.2,
         backgroundColor: Colors.black87,
-        actions: [
-          InkWell(
-            onTap: () => {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Dashboard("This is Dashboard")))
-            },
-            child: Container(
-              margin: EdgeInsets.only(right: 20),
-              child: const Row(
-                children: <Widget>[
-                  Text(
-                    'Skip',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  Icon(
-                    Icons.arrow_right_alt_sharp,
-                    color: Colors.white,
-                    size: 30,
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
+        actions: [],
       ),
       backgroundColor: Colors.black87,
       body: Container(
@@ -100,6 +72,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         InkWell(
                           onTap: () {
                             // To be filled with google login logic
+                            AuthService().signInWithGoogle();
                           },
                           child: Container(
                             decoration: BoxDecoration(

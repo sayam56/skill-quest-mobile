@@ -1,9 +1,11 @@
+import 'package:Skill_Quest/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
   final String title;
 
-  Dashboard(this.title, {super.key});
+  const Dashboard(this.title, {super.key});
 
   @override
   State<Dashboard> createState() {
@@ -12,39 +14,47 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  int _counter = 0;
+  final user = FirebaseAuth.instance.currentUser!;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Colors.black87,
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            color: kPrimaryColor,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: signUserOut,
+            icon: const Icon(Icons.logout),
+            color: kPrimaryColor,
+          )
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Image.network(user.photoURL!),
+            Text(
+              'You are logged in as: ${user.displayName!}',
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              'With Email: ${user.email!}',
+            ),
+            Text(
+              'Your UID: ${user.uid!}',
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

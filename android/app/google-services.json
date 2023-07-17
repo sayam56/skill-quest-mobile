@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "247941091722",
+    "project_id": "skillquest-1a86b",
+    "storage_bucket": "skillquest-1a86b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247941091722:android:81f2b9f0790faa13d27873",
+        "android_client_info": {
+          "package_name": "com.example.skill_quest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247941091722-j0qev8i9294v24u03jjfr0hfvk1mrc0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmRWC18b-VondyFjr-r-GN6OKV_ko5WIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247941091722-j0qev8i9294v24u03jjfr0hfvk1mrc0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
