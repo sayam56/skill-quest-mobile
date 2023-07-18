@@ -2,6 +2,7 @@ import 'package:Skill_Quest/view/pages/auth_page.dart';
 import 'package:Skill_Quest/view/pages/course_list.dart';
 import 'package:Skill_Quest/view/pages/dashboard.dart';
 import 'package:Skill_Quest/view/pages/settings.dart';
+import 'package:Skill_Quest/view/pages/sign_up.dart';
 import 'package:Skill_Quest/view/pages/user_profile.dart';
 import 'package:Skill_Quest/view/widgets/common/navbar.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class PageRoutes {
     GetPage(name: settings, page: () => const SettingsPage()),
     GetPage(name: courseList, page: () => const CourseList()),
     GetPage(name: authPage, page: () => const AuthPage()),
+    GetPage(name: signUpPage, page: () => SignUpPage()),
   ];
 
   static getNavbar() => navbar;
@@ -22,6 +24,7 @@ class PageRoutes {
   static getSettings() => settings;
   static getCourseList() => courseList;
   static getAuthPage() => authPage;
+  static getSignUpPage() => signUpPage;
   //
   static String navbar = '/';
   static String dashboard = '/dashboard';
@@ -29,4 +32,5 @@ class PageRoutes {
   static String settings = '/settings';
   static String courseList = '/course_list';
   static String authPage = '/auth_page';
+  static String signUpPage = '/sign_up';
 }

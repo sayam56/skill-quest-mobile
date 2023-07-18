@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
       body: const Center(
-        child: Text('Course List Page'),
+        child: Text('Dashboard Page'),
       ),
     );
   }

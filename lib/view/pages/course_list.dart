@@ -1,3 +1,4 @@
+import 'package:Skill_Quest/main.dart';
 import 'package:flutter/material.dart';
 
 class CourseList extends StatefulWidget {
@@ -10,9 +11,17 @@ class CourseList extends StatefulWidget {
 class _CourseListState extends State<CourseList> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.black87,
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black87,
+        title: const Text(
+          'Course Lists',
+          style: TextStyle(
+            color: kPrimaryColor,
+          ),
+        ),
+      ),
+      body: const Center(
         child: Text('Course List Page'),
       ),
     );
