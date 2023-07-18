@@ -1,5 +1,10 @@
 {
     "java.project.sourcePaths": [
         "lib"
+    ],
+    "cSpell.words": [
+        "bottombar",
+        "Getx",
+        "Iconly"
     ]
 }

@@ -1,33 +1,22 @@
 import 'package:Skill_Quest/main.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatefulWidget {
-  final String title;
-
-  const Dashboard(this.title, {super.key});
+class CourseList extends StatefulWidget {
+  const CourseList({Key? key}) : super(key: key);
 
   @override
-  State<Dashboard> createState() {
-    return _DashboardState();
-  }
+  State<CourseList> createState() => _CourseListState();
 }
 
-class _DashboardState extends State<Dashboard> {
-  final user = FirebaseAuth.instance.currentUser!;
-
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
-
+class _CourseListState extends State<CourseList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text(
-          widget.title,
-          style: const TextStyle(
+        title: const Text(
+          'Course Lists',
+          style: TextStyle(
             color: kPrimaryColor,
           ),
         ),
@@ -36,7 +25,7 @@ class _DashboardState extends State<Dashboard> {
         color: Colors.black87,
         child: const Center(
           child: Text(
-            'Dashboard Page',
+            'Course List Page',
             style: TextStyle(
               color: Colors.white,
             ),
