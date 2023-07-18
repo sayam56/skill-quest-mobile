@@ -31,17 +31,30 @@ class _NavbarState extends State<Navbar> {
               const SettingsPage()
             ],
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: Colors.black87,
-            unselectedItemColor: Colors.black87,
-            currentIndex: navController.tabIndex,
-            onTap: navController.changeTabIndex,
-            items: [
-              _bottombarItem(IconlyBold.home, "Dashboard"),
-              _bottombarItem(IconlyBold.bookmark, "Courses"),
-              _bottombarItem(IconlyBold.profile, "Profile"),
-              _bottombarItem(IconlyBold.setting, "Settings"),
-            ],
+          bottomNavigationBar: Theme(
+            data: Theme.of(this.context).copyWith(
+              // sets the background color of the `BottomNavigationBar`
+              canvasColor: kPrimaryColor,
+              // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+              primaryColor: Colors.red,
+              textTheme: Theme.of(this.context).textTheme.copyWith(
+                    bodySmall: const TextStyle(color: Colors.yellow),
+                  ),
+            ), // sets the inactive color of the `BottomNavigationBar`
+
+            child: BottomNavigationBar(
+              backgroundColor: kPrimaryColor,
+              selectedItemColor: Colors.black87,
+              unselectedItemColor: Colors.black87,
+              currentIndex: navController.tabIndex,
+              onTap: navController.changeTabIndex,
+              items: [
+                _bottombarItem(IconlyBold.home, "Dashboard"),
+                _bottombarItem(IconlyBold.bookmark, "Courses"),
+                _bottombarItem(IconlyBold.profile, "Profile"),
+                _bottombarItem(IconlyBold.setting, "Settings"),
+              ],
+            ),
           ),
         );
       },

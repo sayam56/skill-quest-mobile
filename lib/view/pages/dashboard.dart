@@ -32,8 +32,16 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text('Dashboard Page'),
+      body: Container(
+        color: Colors.black87,
+        child: const Center(
+          child: Text(
+            'Dashboard Page',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -12,10 +12,6 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   final user = FirebaseAuth.instance.currentUser!;
 
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,29 +23,34 @@ class _UserProfileState extends State<UserProfile> {
             color: kPrimaryColor,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: signUserOut,
-            icon: const Icon(Icons.logout),
-            color: kPrimaryColor,
-          )
-        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.network(user.photoURL!),
-            Text(
-              'You are logged in as: ${user.displayName!}',
-            ),
-            Text(
-              'With Email: ${user.email!}',
-            ),
-            Text(
-              'Your UID: ${user.uid!}',
-            ),
-          ],
+      body: Container(
+        color: Colors.black87,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.network(user.photoURL!),
+              Text(
+                'You are logged in as: ${user.displayName!}',
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                'With Email: ${user.email!}',
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                'Your UID: ${user.uid!}',
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

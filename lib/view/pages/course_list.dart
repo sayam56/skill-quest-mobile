@@ -21,8 +21,16 @@ class _CourseListState extends State<CourseList> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text('Course List Page'),
+      body: Container(
+        color: Colors.black87,
+        child: const Center(
+          child: Text(
+            'Course List Page',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }
