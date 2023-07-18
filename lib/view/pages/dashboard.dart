@@ -31,30 +31,9 @@ class _DashboardState extends State<Dashboard> {
             color: kPrimaryColor,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: signUserOut,
-            icon: const Icon(Icons.logout),
-            color: kPrimaryColor,
-          )
-        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.network(user.photoURL!),
-            Text(
-              'You are logged in as: ${user.displayName!}',
-            ),
-            Text(
-              'With Email: ${user.email!}',
-            ),
-            Text(
-              'Your UID: ${user.uid!}',
-            ),
-          ],
-        ),
+      body: const Center(
+        child: Text('Course List Page'),
       ),
     );
   }
