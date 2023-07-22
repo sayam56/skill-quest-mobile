@@ -18,11 +18,12 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: kPrimaryColor,
+        centerTitle: true,
         title: const Text(
           'Settings',
           style: TextStyle(
-            color: kPrimaryColor,
+            color: Colors.black87,
           ),
         ),
       ),

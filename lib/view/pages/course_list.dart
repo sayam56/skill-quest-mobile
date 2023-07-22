@@ -13,11 +13,12 @@ class _CourseListState extends State<CourseList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: kPrimaryColor,
+        centerTitle: true,
         title: const Text(
           'Course Lists',
           style: TextStyle(
-            color: kPrimaryColor,
+            color: Colors.black87,
           ),
         ),
       ),

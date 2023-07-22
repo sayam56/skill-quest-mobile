@@ -16,11 +16,12 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: kPrimaryColor,
+        centerTitle: true,
         title: const Text(
           'Profile',
           style: TextStyle(
-            color: kPrimaryColor,
+            color: Colors.black87,
           ),
         ),
       ),
