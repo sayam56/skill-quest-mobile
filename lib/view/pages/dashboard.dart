@@ -45,7 +45,7 @@ class _DashboardState extends State<Dashboard> {
           children: List.generate(
             10,
             (index) {
-              return CourseTile(index);
+              return CourseTile("$index");
             },
           ),
         ),
