@@ -25,7 +25,7 @@ class _NavbarState extends State<Navbar> {
           body: IndexedStack(
             index: navController.tabIndex,
             children: [
-              const Dashboard('Dashboard'),
+              const Dashboard('My Courses'),
               const CourseList(),
               UserProfile(),
               const SettingsPage()
