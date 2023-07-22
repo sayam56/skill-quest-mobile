@@ -2,7 +2,7 @@ import 'package:Skill_Quest/main.dart';
 import 'package:flutter/material.dart';
 
 class CourseTile extends StatefulWidget {
-  final int index;
+  final String index;
 
   const CourseTile(this.index, {super.key});
 
@@ -13,7 +13,7 @@ class CourseTile extends StatefulWidget {
 class _CourseTileState extends State<CourseTile> {
   @override
   Widget build(BuildContext context) {
-    int? itemCount = widget.index;
+    String? itemName = widget.index;
     return Card(
       elevation: 15,
       color: Colors.transparent,
@@ -34,7 +34,7 @@ class _CourseTileState extends State<CourseTile> {
               width: 100,
             ),
             Text(
-              'Course Name $itemCount',
+              'Course Name $itemName',
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
