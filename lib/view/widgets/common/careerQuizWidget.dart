@@ -1,4 +1,5 @@
 import 'package:Skill_Quest/main.dart';
+import 'package:Skill_Quest/view/pages/quiz_page.dart';
 import 'package:flutter/material.dart';
 
 class CareerQuizWidget extends StatefulWidget {
@@ -67,6 +68,13 @@ class _CareerQuizWidgetState extends State<CareerQuizWidget> {
                       child: IconButton.outlined(
                         onPressed: () {
                           // send to career quiz page
+                          //Navigate to Course Details Page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuizPage(),
+                            ),
+                          );
                         },
                         icon: const Icon(
                           Icons.check_box,

@@ -101,7 +101,7 @@ class _CourseListState extends State<CourseList> {
                   bottom: 25,
                 ),
                 itemCount: editingController!.text.isNotEmpty
-                    ? searchItems!.length
+                    ? searchItems.length
                     : mainItems.length,
                 itemBuilder: (context, index) {
                   return CourseTile(editingController!.text.isNotEmpty
