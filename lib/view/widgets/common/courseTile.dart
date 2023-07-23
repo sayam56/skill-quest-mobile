@@ -34,15 +34,19 @@ class _CourseTileState extends State<CourseTile> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(
-                height: 8,
+                height: 4,
               ),
               Image.asset(
                 "assets/images/courseIcon.png",
-                height: 100,
-                width: 100,
+                height: 80,
+                width: 80,
+              ),
+              const SizedBox(
+                height: 5,
               ),
               Text(
-                'Course Name $itemName',
+                'Course $itemName',
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

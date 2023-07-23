@@ -73,7 +73,7 @@ class _UserProfileState extends State<UserProfile> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.all(25),
+                padding: EdgeInsets.all(5),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -83,7 +83,7 @@ class _UserProfileState extends State<UserProfile> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         UserProfileTile('Current Courses', 5),
-                        UserProfileTile('Completed Courses', 1),
+                        UserProfileTile('Completed', 1),
                       ],
                     ),
                     Row(

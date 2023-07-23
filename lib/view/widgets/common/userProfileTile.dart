@@ -17,7 +17,7 @@ class _UserProfileTileState extends State<UserProfileTile> {
     int? cardCount = widget.cardCount;
     return Container(
       height: 100,
-      width: 170,
+      width: 155,
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: Card(
@@ -33,6 +33,7 @@ class _UserProfileTileState extends State<UserProfileTile> {
                 children: [
                   Text(
                     '$cardCount',
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -47,6 +48,7 @@ class _UserProfileTileState extends State<UserProfileTile> {
                 children: [
                   Text(
                     cardText,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
