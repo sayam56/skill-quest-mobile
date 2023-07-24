@@ -2,9 +2,12 @@ import 'package:Skill_Quest/view/pages/course_details.dart';
 import 'package:flutter/material.dart';
 
 class CourseTile extends StatefulWidget {
-  final String index;
+  final bool isViewFromDashboard;
+  final String courseName;
+  final int courseIndex;
 
-  const CourseTile(this.index, {super.key});
+  const CourseTile(this.courseName, this.courseIndex, this.isViewFromDashboard,
+      {super.key});
 
   @override
   State<CourseTile> createState() => _CourseTileState();
@@ -13,13 +16,17 @@ class CourseTile extends StatefulWidget {
 class _CourseTileState extends State<CourseTile> {
   @override
   Widget build(BuildContext context) {
-    String? itemName = widget.index;
+    String? itemName = widget.courseName;
+    int? itemIndex = widget.courseIndex;
+    bool? isSentFromDashboard = widget.isViewFromDashboard;
     return InkWell(
       onTap: () {
         //Navigate to Course Details Page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => CourseDetails(itemName)),
+          MaterialPageRoute(
+              builder: (context) =>
+                  CourseDetails(itemName, itemIndex, isSentFromDashboard)),
         );
       },
       child: Card(
@@ -45,7 +52,7 @@ class _CourseTileState extends State<CourseTile> {
                 height: 5,
               ),
               Text(
-                'Course $itemName',
+                itemName,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: Colors.white,

@@ -1,5 +1,4 @@
 import 'package:Skill_Quest/controller/route_controller.dart';
-import 'package:Skill_Quest/view/pages/auth_page.dart';
 import 'package:Skill_Quest/view/pages/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -9,6 +8,7 @@ import 'package:get/get.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -33,6 +33,9 @@ const MaterialColor kPrimaryColor = MaterialColor(
     900: Color(0xFFFFEED0),
   },
 );
+
+bool? enrolled;
+List<int> enrolledCourseIndex = [];
 
 class MyApp extends StatelessWidget {
   Widget firstWidget = SignUpPage();

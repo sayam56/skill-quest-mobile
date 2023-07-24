@@ -25,17 +25,17 @@ class _QuizPageState extends State<QuizPage> {
       ),
       body: Container(
         color: Colors.black87,
-        child: Center(
+        child: const Center(
           child: Padding(
-            padding: const EdgeInsets.all(25),
+            padding: EdgeInsets.all(25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
-                const Flexible(
+                Flexible(
                   child: Text(
-                    'This is the first question, lets make this question a bit bigger and see if it wraps?',
+                    'Which animal describes your personality?',
                     style: TextStyle(
                       color: kPrimaryColor,
                       fontWeight: FontWeight.w600,
@@ -43,7 +43,7 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                   ),
                 ),
-                const Flexible(
+                Flexible(
                   child: Text(
                     'Please choose your answer:',
                     style: TextStyle(
@@ -53,10 +53,10 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                   ),
                 ),
-                OptionWidget(),
-                OptionWidget(),
-                OptionWidget(),
-                OptionWidget(),
+                OptionWidget('Lion/Tiger'),
+                OptionWidget('Wolf'),
+                OptionWidget('Panda'),
+                OptionWidget('Honeybee'),
               ],
             ),
           ),

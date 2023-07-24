@@ -23,6 +23,7 @@ dependencies:
   iconly: ^1.0.1
   shared_preferences: ^2.2.0
   youtube_player_flutter: ^8.1.2
+  swipe_refresh: ^1.0.2
 
 flutter_native_splash:
   android: true

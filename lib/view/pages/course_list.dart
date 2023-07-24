@@ -1,4 +1,5 @@
 import 'package:Skill_Quest/main.dart';
+import 'package:Skill_Quest/model/courses_name.dart';
 import 'package:Skill_Quest/view/widgets/common/careerQuizWidget.dart';
 import 'package:Skill_Quest/view/widgets/common/courseTile.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class CourseList extends StatefulWidget {
 class _CourseListState extends State<CourseList> {
   TextEditingController? editingController = TextEditingController();
 
-  final mainItems = List<String>.generate(15, (i) => "Item $i");
+  final mainItems = courseNames;
 
   var searchItems = <String>[];
 
@@ -104,9 +105,12 @@ class _CourseListState extends State<CourseList> {
                     ? searchItems.length
                     : mainItems.length,
                 itemBuilder: (context, index) {
-                  return CourseTile(editingController!.text.isNotEmpty
-                      ? searchItems[index]
-                      : mainItems[index]);
+                  return CourseTile(
+                      editingController!.text.isNotEmpty
+                          ? searchItems[index]
+                          : mainItems[index],
+                      index,
+                      false);
                 },
               ),
             ),
