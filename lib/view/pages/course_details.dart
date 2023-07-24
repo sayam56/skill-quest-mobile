@@ -1,12 +1,18 @@
 import 'package:Skill_Quest/main.dart';
+import 'package:Skill_Quest/model/course_desc.dart';
+import 'package:Skill_Quest/model/course_links.dart';
+import 'package:Skill_Quest/services/shared_preference.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class CourseDetails extends StatefulWidget {
   final String itemName;
+  final int itemIndex;
+  final bool isViewFromDashboard;
 
-  const CourseDetails(this.itemName, {super.key});
+  const CourseDetails(this.itemName, this.itemIndex, this.isViewFromDashboard,
+      {super.key});
 
   @override
   State<CourseDetails> createState() => _CourseDetailsState();
@@ -32,7 +38,7 @@ class _CourseDetailsState extends State<CourseDetails> {
   void initState() {
     super.initState();
 
-    const url = 'https://www.youtube.com/watch?v=CD1Y2DmL5JM';
+    final url = courseLinks[widget.itemIndex];
 
     _videoController = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(url)!,
@@ -46,6 +52,8 @@ class _CourseDetailsState extends State<CourseDetails> {
 
   @override
   Widget build(BuildContext context) {
+    String? desc = courseDesc[widget.itemIndex];
+
     return YoutubePlayerBuilder(
       player: YoutubePlayer(
         controller: _videoController,
@@ -86,12 +94,14 @@ class _CourseDetailsState extends State<CourseDetails> {
                     const SizedBox(
                       width: 25,
                     ),
-                    Text(
-                      widget.itemName,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 25,
+                    Flexible(
+                      child: Text(
+                        widget.itemName,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                   ],
@@ -119,9 +129,9 @@ class _CourseDetailsState extends State<CourseDetails> {
                       children: [
                         SizedBox(
                           width: (MediaQuery.of(context).size.width - 50),
-                          child: const Text(
-                            'This is a sample description for the course. This description will later be logically updated',
-                            style: TextStyle(
+                          child: Text(
+                            desc,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
@@ -184,6 +194,69 @@ class _CourseDetailsState extends State<CourseDetails> {
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    widget.isViewFromDashboard
+                        ? const SizedBox(
+                            width: 15,
+                          )
+                        : Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    enrolled = true;
+                                    enrolledCourseIndex.add(widget.itemIndex);
+                                    updateEnrollmentStatus();
+                                    Navigator.popAndPushNamed(
+                                        context, '/navbar');
+                                  });
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.black87,
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(25),
+                                    ),
+                                    border: Border.all(
+                                      width: 2,
+                                      color: kPrimaryColor,
+                                    ),
+                                  ),
+                                  height: 50,
+                                  width:
+                                      MediaQuery.of(context).size.width - 150,
+                                  margin: const EdgeInsets.only(
+                                    left: 50,
+                                    right: 50,
+                                  ),
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        IconlyBold.download,
+                                        color: kPrimaryColor,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Center(
+                                        child: Text(
+                                          'Enroll',
+                                          style: TextStyle(
+                                            color: kPrimaryColor,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                   ],
                 ),
               ],
